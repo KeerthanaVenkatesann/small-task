@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concentric Circles</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+    
+        #outer {
+            border-radius: 50%;
+            background-color: #ff0000;
+            height: 300px;
+            width: 300px;
+            position: relative;
+            z-index: 1;
+        }
+    
+        #middle {
+            border-radius: 50%;
+            background-color:yellow ;
+            height: 200px;
+            width: 200px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+        }
+    
+        #inner {
+            border-radius: 50%;
+            background-color:blue;
+            height: 100px;
+            width: 100px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 3;
+        }
+    
+        /* Pseudo-elements to create additional circles */
+        #outer::before,
+        #middle::before,
+        #inner::before {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+        }
+    
+        #outer::before {
+            background-color:#ffa500;
+            height: 250px;
+            width: 250px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
+    
+        #middle::before {
+            background-color: #008000;
+            height: 150px;
+            width: 150px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -2;
+        }
+    
+        #inner::before {
+            background-color: #800080;
+            height: 50px;
+            width: 50px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -3;
+        }
+    </style>
+    
+</head>
+<body>
+    <div id="outer">
+        <div id="middle">
+            <div id="inner">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="abc">
+    <select  id="operate">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="-">-</option>
+        <option value="/">/</option>
+        <option value="\">\</option> 
+    </select>
+    <input type="text" id="abc2">
+    <button onclick="any()">=</button>
+    <h1 id="result"></h1>
+    <script>
+   function any(){
+    var a = parseFloat(document.getElementById("abc").value)
+    var  operator = document.getElementById("operate").value
+     var b =  parseFloat(document.getElementById("abc2").value)
+
+var common;
+switch(operator){
+    case '+' :
+        common = a+b;
+        break;
+     case '-':
+        common= a-b;
+        break;
+        case '*':
+            common=  a*b
+            break;
+            case '/':
+                common = a/b 
+                break;
+                
+                default:
+                    common="ithu list laiye ila"
+
+
+
+
+
+}
+
+document.getElementById('result').innerText = common
+   }
+    </script>
+</body>
+</html>

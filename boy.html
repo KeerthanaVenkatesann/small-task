@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guessing Game</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.game-container {
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+button {
+    padding: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>Number Guessing Game</h1>
+        <p>Guess a number between 1 and 10:</p>
+        <input type="number" id="guessInput" min="1" max="10">
+        <button onclick="checkGuess()">Submit Guess</button>
+        <p id="resultMessage"></p>
+    </div>
+
+    <script >// Generating a random number between 1 and 10
+        const targetNumber = Math.floor(Math.random() * 10) + 1;
+        
+        function checkGuess() {
+            const guessInput = document.getElementById('guessInput');
+            const resultMessage = document.getElementById('resultMessage');
+            const userGuess = parseInt(guessInput.value);
+        
+            if (isNaN(userGuess) || userGuess < 1 || userGuess > 10) {
+                resultMessage.textContent = 'Please enter a valid number between 1 and 10.';
+            } else {
+                if (userGuess === targetNumber) {
+                    resultMessage.textContent = 'Congratulations! You guessed the correct number.';
+                } else {
+                    resultMessage.textContent = `Wrong guess. The correct number is ${targetNumber}. Try again!`;
+                }
+            }
+        }
+        </script>
+</body>
+</html>
